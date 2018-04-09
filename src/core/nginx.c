@@ -207,6 +207,7 @@ main(int argc, char *const *argv)
         return 1;
     }
 
+	//命令行参数处理
     if (ngx_get_options(argc, argv) != NGX_OK) {
         return 1;
     }
@@ -249,6 +250,7 @@ main(int argc, char *const *argv)
     init_cycle.log = log;
     ngx_cycle = &init_cycle;
 
+	//内存池
     init_cycle.pool = ngx_create_pool(1024, log);
     if (init_cycle.pool == NULL) {
         return 1;
@@ -288,6 +290,7 @@ main(int argc, char *const *argv)
         return 1;
     }
 
+	//重要初始化函数,cycle贯穿整个程序生命周期
     cycle = ngx_init_cycle(&init_cycle);
     if (cycle == NULL) {
         if (ngx_test_config) {
