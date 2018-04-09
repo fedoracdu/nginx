@@ -264,6 +264,7 @@ main(int argc, char *const *argv)
         return 1;
     }
 
+	//此处会获取ngx_pagesize大小
     if (ngx_os_init(log) != NGX_OK) {
         return 1;
     }
